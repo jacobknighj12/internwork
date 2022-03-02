@@ -6,5 +6,15 @@
  * @returns {Number} The sum of all integers contained in the input, at any level.
  */
 export default function arraySum(startOfTree) {
+    var sum = 0;
+    for (var a = 0; a < startOfTree.length; a++) {
+        if (typeof startOfTree[a] == "number") {
+            sum += startOfTree[a];
+        } else if (startOfTree[a] instanceof Array) {
+            sum += arraySum(startOfTree[a]);
+        }
+    }
+    return sum;
+
 
 }
